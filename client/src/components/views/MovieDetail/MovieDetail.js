@@ -22,7 +22,7 @@ function MovieDetail(props) {
                 setMovie(response)
             })
 
-    })
+    }, [])
     return (
         <div>
             {/* {Header} */}
