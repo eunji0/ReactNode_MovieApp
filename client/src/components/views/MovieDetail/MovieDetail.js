@@ -10,7 +10,7 @@ function MovieDetail(props) {
     const [Movie, setMovie] = useState([])
 
     useEffect(() => {
-        console.log(props.match)
+        // console.log(props.match)
 
         let endpointCrew = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`
 
