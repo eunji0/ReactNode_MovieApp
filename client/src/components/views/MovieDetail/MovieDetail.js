@@ -30,7 +30,7 @@ function MovieDetail(props) {
         fetch(endpointCrew)
             .then(response => response.json())
             .then(response => {
-                console.log('reponseForCrew', response)
+                // console.log('reponseForCrew', response)
                 setCasts(response.cast)
             })
 
