@@ -19,6 +19,7 @@ function Favorite(props) {
       //좋아요 숫자 가져오는 API
       .then((response) => {
         if (response.data.success) {
+          console.log(response.data)
           setFavoriteNumber(response.data.favoriteNumber);
         } else {
           alert('숫자 정보를 가져오는데 실패하였습니다.');
@@ -29,6 +30,7 @@ function Favorite(props) {
       //내가 좋아요를 눌렀는지에대한 정보가져오는 API
       .then((response) => {
         if (response.data.success) {
+          console.log("favorited", response.data)
           setFavorited(response.data.favorited);
         } else {
           alert('좋아요 정보를 가져오는데 실패하였습니다.');
