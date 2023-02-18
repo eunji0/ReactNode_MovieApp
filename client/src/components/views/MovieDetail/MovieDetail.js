@@ -46,8 +46,13 @@ function MovieDetail(props) {
 
             {/* {Body} */}
             <div style={{ width: '85%', margin: '1rem auto' }}>
-                <div style={{display:'flex', justifyContent:'flex-end'}}>
-                    <Favorite movieInfo={Movie} movieId={movieId} useFrom={localStorage.getItem('userId')}/>
+                <div
+                    style={{ display: 'flex', justifyContent: 'flex-end' /*버튼을 오른쪽으로밀겠다는의미*/, }}>
+                    <Favorite
+                        movieInfo={Movie} //무비정보
+                        movieId={movieId} //무비Id
+                        userFrom={localStorage.getItem('userId')} //로그인한 사람의정보
+                    />
                 </div>
                 {/* {Movie Info} */}
                 <MovieInfo
