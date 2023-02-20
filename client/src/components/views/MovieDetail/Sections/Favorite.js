@@ -72,6 +72,7 @@ function Favorite(props) {
       })
     }
   }
+  
   return (
     <div>
       <Button onClick={onClickFavorite}>
