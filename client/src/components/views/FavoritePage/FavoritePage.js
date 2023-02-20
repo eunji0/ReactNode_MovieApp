@@ -36,7 +36,7 @@ function FavoritePage() {
             <tr key={index}>
               <td>{favorite.movieTitle}</td>
               <td>{favorite.movieRunTime}</td>
-              <td><button>Removie</button></td>
+              <td><button>Remove</button></td>
             </tr>
 
           ))}
