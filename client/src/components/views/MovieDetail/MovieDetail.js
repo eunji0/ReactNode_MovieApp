@@ -81,7 +81,7 @@ function MovieDetail(props) {
                 }
 
 
-                <Comment />
+                <Comment postId={movieId}/>
 
             </div>
         </div>
