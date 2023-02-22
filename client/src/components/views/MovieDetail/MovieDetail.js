@@ -6,6 +6,7 @@ import MovieInfo from './Sections/MovieInfo';
 import GridCard from '../commons/GridCard';
 import { Row } from 'antd';
 import Favorite from './Sections/Favorite';
+import Comment from './Sections/Comment';
 
 function MovieDetail(props) {
 
