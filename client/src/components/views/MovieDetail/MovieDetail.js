@@ -79,6 +79,9 @@ function MovieDetail(props) {
                     </Row>
                 }
 
+
+                <Comment />
+
             </div>
         </div>
     )
