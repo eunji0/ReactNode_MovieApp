@@ -23,7 +23,7 @@ function Comment(props) {
             postId: movieId
         }
 
-        // console.log('varables', variables)
+        console.log('varables', variables)
 
         Axios.post('/api/comment/saveComment', variables)
         .then(response => {
