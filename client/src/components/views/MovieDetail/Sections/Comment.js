@@ -17,11 +17,11 @@ function Comment(props) {
     const onSubmit = (event) =>{
         event.preventDefault();
 
-        const variables = {
-            content: commentValue,
-            writer: user.userData._id,
-            postId: movieId
-        }
+        // const variables = {
+        //     content: commentValue,
+        //     writer: user.userData._id,
+        //     postId: movieId
+        // }
 
         console.log('varables', variables)
 
