@@ -1,6 +1,7 @@
 import Axios from 'axios'
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import SingleComment from './SingleComment';
 
 function Comment(props) {
 
@@ -17,11 +18,11 @@ function Comment(props) {
     const onSubmit = (event) =>{
         event.preventDefault();
 
-        // const variables = {
-        //     content: commentValue,
-        //     writer: user.userData._id,
-        //     postId: movieId
-        // }
+        const variables = {
+            content: commentValue,
+            writer: user.userData._id,
+            postId: movieId
+        }
 
         console.log('varables', variables)
 
@@ -40,6 +41,7 @@ function Comment(props) {
             <p> Replies</p>
             <hr />
 
+            <SingleComment />
 
             <form style={{ display: 'flex' }} onSubmit={onSubmit}>
                 <textarea style={{ width: '100%', borderRadius: '5px' }}

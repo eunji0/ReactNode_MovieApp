@@ -14,6 +14,7 @@ function MovieDetail(props) {
     const [Movie, setMovie] = useState([])
     const [Casts, setCasts] = useState([])
     const [ActorToggle, setActorToggle] = useState(false)
+    const [Commets, setCommets] =useState()
 
     useEffect(() => {
         // console.log(props.match)
