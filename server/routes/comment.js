@@ -19,4 +19,15 @@ router.post("/saveComment", (req, res)=>{
     })
 })
 
+router.post("/getComments", (req, res)=>{
+
+    Commment.find({'postId': req.body.movieId})
+    .populate('writer')
+        .exec((err, comments)=>{
+            if(err) return res.status(400).send(err)
+            res.status(200).json({success:true, comments})
+        })
+})
+
+
 module.exports=router;

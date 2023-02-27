@@ -9,13 +9,13 @@ function Comment(props) {
 
     const user = useSelector(state => state.user)
 
-    const [commentValue, setcommentValue]= useState("")
+    const [commentValue, setcommentValue] = useState("")
 
-    const handleClick = (event)=>{
+    const handleClick = (event) => {
         setcommentValue(event.currentTarget.value)
     }
 
-    const onSubmit = (event) =>{
+    const onSubmit = (event) => {
         event.preventDefault();
 
         const variables = {
@@ -27,13 +27,13 @@ function Comment(props) {
         console.log('varables', variables)
 
         Axios.post('/api/comment/saveComment', variables)
-        .then(response => {
-            if(response.data.success){
-                console.log(response.data.result)
-            }else{
-                alert('커멘트를 저장하지 못했습니다.')
-            }
-        })
+            .then(response => {
+                if (response.data.success) {
+                    console.log(response.data.result)
+                } else {
+                    alert('커멘트를 저장하지 못했습니다.')
+                }
+            })
     }
     return (
         <div>
@@ -41,7 +41,10 @@ function Comment(props) {
             <p> Replies</p>
             <hr />
 
-            <SingleComment />
+            {props.commentLists && props.commentLists.map((comment, index) => (
+                <SingleComment comment={comment} postId={movieId} />
+            ))}
+
 
             <form style={{ display: 'flex' }} onSubmit={onSubmit}>
                 <textarea style={{ width: '100%', borderRadius: '5px' }}

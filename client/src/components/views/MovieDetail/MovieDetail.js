@@ -7,6 +7,7 @@ import GridCard from '../commons/GridCard';
 import { Row } from 'antd';
 import Favorite from './Sections/Favorite';
 import Comment from './Sections/Comment';
+import Axios from 'axios';
 
 function MovieDetail(props) {
 
@@ -14,10 +15,11 @@ function MovieDetail(props) {
     const [Movie, setMovie] = useState([])
     const [Casts, setCasts] = useState([])
     const [ActorToggle, setActorToggle] = useState(false)
-    const [Commets, setCommets] =useState()
+    const [Comments, setComments] = useState([])
 
     useEffect(() => {
         // console.log(props.match)
+        const varable = { movieId: movieId }
 
         let endpointCrew = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`
 
@@ -35,6 +37,19 @@ function MovieDetail(props) {
                 // console.log('reponseForCrew', response)
                 setCasts(response.cast)
             })
+
+        Axios.post('/api/comment/getComments', varable)
+        .then(response =>{
+            if(response.data.success){
+                setComments(response.data.Comments)
+
+                console.log(response.data.Comments)
+            }else{
+                alert('코멘트 정보를 가져오는 것을 실패하였습니다/')
+            }
+        })
+
+
 
     }, [])
     return (
@@ -82,7 +97,7 @@ function MovieDetail(props) {
                 }
 
 
-                <Comment postId={movieId}/>
+                <Comment commentLists={Comments} postId={movieId} />
 
             </div>
         </div>
