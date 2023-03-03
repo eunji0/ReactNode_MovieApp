@@ -17,23 +17,23 @@ function SingleComment(props) {
     const onSubmit = (event) => {
         event.preventDefault();
 
-        // const variables = {
-        //     content: CommentValue,
-        //     writer: user.userData._id,
-        //     postId: props.postId,
-        //     // responseTo:
-        // }
+        const variables = {
+            content: CommentValue,
+            writer: user.userData._id,
+            postId: props.postId,
+            // responseTo:
+        }
 
-        // console.log('varables', variables)
+        console.log('varables', variables)
 
-        // Axios.post('/api/comment/saveComment', variables)
-        // .then(response => {
-        //     if(response.data.success){
-        //         console.log(response.data.result)
-        //     }else{
-        //         alert('커멘트를 저장하지 못했습니다.')
-        //     }
-        // })
+        Axios.post('/api/comment/saveComment', variables)
+        .then(response => {
+            if(response.data.success){
+                console.log(response.data.result)
+            }else{
+                alert('커멘트를 저장하지 못했습니다.')
+            }
+        })
     }
 
     const actions = [
