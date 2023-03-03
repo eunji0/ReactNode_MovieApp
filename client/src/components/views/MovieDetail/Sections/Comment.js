@@ -6,7 +6,7 @@ import SingleComment from './SingleComment';
 function Comment(props) {
 
     let movieId = props.postId
-
+    const userFrom = props.userFrom;
     const user = useSelector(state => state.user)
 
     const [commentValue, setcommentValue] = useState("")
@@ -20,7 +20,7 @@ function Comment(props) {
 
         const variables = {
             content: commentValue,
-            writer: user.userData._id,
+            writer: userFrom,
             postId: movieId
         }
 
