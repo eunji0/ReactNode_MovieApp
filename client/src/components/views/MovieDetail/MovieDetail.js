@@ -18,6 +18,7 @@ function MovieDetail(props) {
     const [ActorToggle, setActorToggle] = useState(false)
     const [Comments, setComments] = useState([])
 
+
     useEffect(() => {
         // console.log(props.match)
         const varable = { movieId: movieId }
@@ -49,6 +50,14 @@ function MovieDetail(props) {
         });
 
     }, [])
+
+    const refreshFunction = (newComment) => {
+        //부모의 Comments state값을 업데이트하기위한 함수
+        setComments(Comments.concat(newComment)); //자식들한테 값을 전달받아 Comments값 업데이트
+      };
+
+
+      
     return (
         <div>
             {/* {Header} */}
@@ -94,7 +103,7 @@ function MovieDetail(props) {
                 }
 
 
-                <Comment commentLists={Comments} postId={movieId} />
+                <Comment refreshFunction={refreshFunction} commentLists={Comments} postId={movieId} />
 
             </div>
         </div>

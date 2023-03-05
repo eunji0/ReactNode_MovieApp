@@ -13,21 +13,22 @@ function SingleComment(props) {
 
   const onsubmit = (event) => {
     event.preventDefault();
-    // const variables = {
-    //   content: CommentValue,
-    //   writer: user.userData._id,
-    //   postId: props.postId,
-    //   responseTo: props.comment._id,
-    // };
-    // Axios.post('/api/comment/saveComment', variables).then((response) => {
-    //   if (response.data.success) {
-    //     console.log(response.data.result);
-    //     setCommentValue(''); //저장후 빈칸으로 만들기 위해
-    //     props.refreshFunction(response.data.result);
-    //   } else {
-    //     alert('커멘트를 저장하지 못했습니다.');
-    //   }
-    // });
+    
+    const variables = {
+      content: CommentValue,
+      writer: user.userData._id,
+      postId: props.postId,
+      responseTo: props.comment._id,
+    };
+    Axios.post('/api/comment/saveComment', variables).then((response) => {
+        if (response.data.success) {
+          setCommentValue(''); //저장후 빈칸으로 만들기 위해
+          props.refreshFunction(response.data.result);
+          setOpenReply(false); //엔터 입력후 댓글창 자동으로 닫는기능
+        } else {
+          alert('커멘트를 저장하지 못했습니다.');
+        }
+      }); 
   };
   const onClickReplyOpen = () => {
     setOpenReply(!OpenReply);
