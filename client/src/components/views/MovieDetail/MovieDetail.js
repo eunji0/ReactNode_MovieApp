@@ -97,7 +97,7 @@ function MovieDetail(props) {
                 }
 
 
-                <Comment commentLists={Comments} postId={movieId} userFrom={localStorage.getItem('userId')}/>
+                <Comment commentLists={Comments} postId={movieId}/>
 
             </div>
         </div>
