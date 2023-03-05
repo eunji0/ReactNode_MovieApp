@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { useSelector } from 'react-redux';
+import SingleComment from './SingleComment';
 
 function Comment(props) {
   const videoId = props.postId;
@@ -35,7 +36,18 @@ function Comment(props) {
       <hr />
 
       {/* Comment Lists */}
-
+      {props.commentList &&
+        props.commentList.map(
+          (comment, index) =>
+            !comment.responseTo && (
+              <SingleComment
+                refreshFunction={props.refreshFunction}
+                comment={comment}
+                postId={props.postId}
+                key={index}
+              />
+            )
+        )}
       {/* Root Comment Form */}
 
       <form style={{ display: 'flex' }} onSubmit={onsubmit}>
