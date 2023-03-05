@@ -11,7 +11,8 @@ import Axios from 'axios';
 
 function MovieDetail(props) {
 
-    let movieId = props.match.params.movieId
+    let movieId = props.match.params.movieId;
+    const variable = { movieId: movieId };
     const [Movie, setMovie] = useState([])
     const [Casts, setCasts] = useState([])
     const [ActorToggle, setActorToggle] = useState(false)
@@ -38,18 +39,14 @@ function MovieDetail(props) {
                 setCasts(response.cast)
             })
 
-        Axios.post('/api/comment/getComments', varable)
-        .then(response =>{
-            if(response.data.success){
-                setComments(response.data.Comments)
-
-                console.log(response.data.Comments)
-            }else{
-                alert('코멘트 정보를 가져오는 것을 실패하였습니다/')
+        Axios.post('/api/comment/getComments', variable).then((response) => {
+            if (response.data.success) {
+                console.log(response.data.comments);
+                setComments(response.data.comments);
+            } else {
+                alert('코멘트 정보를 가져오는 것을 실패 하였습니다.');
             }
-        })
-
-
+        });
 
     }, [])
     return (
@@ -97,7 +94,7 @@ function MovieDetail(props) {
                 }
 
 
-                <Comment commentLists={Comments} postId={movieId}/>
+                <Comment commentLists={Comments} postId={movieId} />
 
             </div>
         </div>

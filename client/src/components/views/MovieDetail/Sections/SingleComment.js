@@ -9,6 +9,37 @@ function SingleComment(props) {
   const [OpenReply, setOpenReply] = useState(false);
   const [CommentValue, setCommentValue] = useState('');
 
+  const user = useSelector((state) => state.user);
+
+  const onsubmit = (event) => {
+    event.preventDefault();
+    // const variables = {
+    //   content: CommentValue,
+    //   writer: user.userData._id,
+    //   postId: props.postId,
+    //   responseTo: props.comment._id,
+    // };
+    // Axios.post('/api/comment/saveComment', variables).then((response) => {
+    //   if (response.data.success) {
+    //     console.log(response.data.result);
+    //     setCommentValue(''); //저장후 빈칸으로 만들기 위해
+    //     props.refreshFunction(response.data.result);
+    //   } else {
+    //     alert('커멘트를 저장하지 못했습니다.');
+    //   }
+    // });
+  };
+  const onClickReplyOpen = () => {
+    setOpenReply(!OpenReply);
+  };
+  const onHandleChange = (event) => {
+    setCommentValue(event.currentTarget.value);
+  };
+  const actions = [
+    <span onClick={onClickReplyOpen} key="comment-basic-reply-to">
+      Reply to
+    </span>,
+  ];
   return (
     <div>
       <Comment
