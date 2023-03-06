@@ -20,7 +20,7 @@ function Comment(props) {
       postId: videoId,
     };
 
-    // console.log('variables', variables)
+    console.log('variables', variables)
     Axios.post('/api/comment/saveComment', variables).then((response) => {
       if (response.data.success) {
         console.log(response.data.result);
