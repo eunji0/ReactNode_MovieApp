@@ -69,3 +69,5 @@ function Comment(props) {
 }
 
 export default Comment;
+
+//왜 잔디 적용이 안..돼?
